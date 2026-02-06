@@ -65,3 +65,98 @@
 .divbotones > button{
   margin: 10px;
 }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #2f3640;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #dcdde1;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+input:focus {
+  border-color: #0984e3;
+  outline: none;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #0984e3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn:disabled {
+  background-color: #b2bec3;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #74b9ff;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow: auto;
+  margin-top: 15px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #dcdde1;
+}
+
+th {
+  background-color: #0984e3;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f2f6;
+}

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 export default function App() {
   const [url, setUrl] = useState("");
-  const [apiKey, setApiKey] = useState("");   // NUEVO
+  const [apiKey, setApiKey] = useState("");
   const [token, setToken] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -39,58 +39,57 @@ export default function App() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Consultar Vista REST (Supabase)</h2>
+    <div className="app-container">
+      <h2>Consultar Vista REST</h2>
 
-      <input
-        type="text"
-        placeholder="URL de la vista REST"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
+      <div className="inputs-container">
+        <input
+          type="text"
+          placeholder="URL de la vista REST"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="API Key (anon public)"
+          value={apiKey}
+          onChange={(e) => setApiKey(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Bearer token (JWT)"
+          value={token}
+          onChange={(e) => setToken(e.target.value)}
+        />
+      </div>
 
-      <input
-        type="text"
-        placeholder="API Key (anon public)"
-        value={apiKey}
-        onChange={(e) => setApiKey(e.target.value)}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
-
-      <input
-        type="text"
-        placeholder="Bearer token (JWT)"
-        value={token}
-        onChange={(e) => setToken(e.target.value)}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
-
-      <button onClick={consultarVista} disabled={loading}>
+      <button onClick={consultarVista} disabled={loading} className="btn">
         {loading ? "Cargando..." : "Consultar"}
       </button>
 
       <hr />
 
       {data.length > 0 && (
-        <table border="1" cellPadding="5" style={{ width: "100%", marginTop: 10 }}>
-          <thead>
-            <tr>
-              {Object.keys(data[0]).map((col) => (
-                <th key={col}>{col}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, i) => (
-              <tr key={i}>
-                {Object.values(row).map((val, j) => (
-                  <td key={j}>{val === null ? "" : String(val)}</td>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                {Object.keys(data[0]).map((col) => (
+                  <th key={col}>{col}</th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((row, i) => (
+                <tr key={i}>
+                  {Object.values(row).map((val, j) => (
+                    <td key={j}>{val === null ? "" : String(val)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
