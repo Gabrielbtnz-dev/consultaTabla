@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.pricipalDIV{
+  text-align: center;
+  border: 1px solid black;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 7px;
+
+  display: flex;
+  flex-direction: column;   /* 👈 esto apila en columna */
+  align-items: center;      /* centra horizontalmente */
+  justify-content: center;  /* centra verticalmente */
+  gap: 20px;
+}
+
+
+.divPadre{
+  display: flex;
+  justify-content: center;
+}
+
+.divbotones{
+  display: flex;
+  flex-direction: row;
+}
+
+.divbotones > button{
+  margin: 10px;
+}
