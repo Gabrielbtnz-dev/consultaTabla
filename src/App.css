@@ -37,35 +37,6 @@
   }
 }
 
-.pricipalDIV{
-  text-align: center;
-  border: 1px solid black;
-  width: 20rem;
-  height: 20rem;
-  border-radius: 7px;
-
-  display: flex;
-  flex-direction: column;   /* 👈 esto apila en columna */
-  align-items: center;      /* centra horizontalmente */
-  justify-content: center;  /* centra verticalmente */
-  gap: 20px;
-}
-
-
-.divPadre{
-  display: flex;
-  justify-content: center;
-}
-
-.divbotones{
-  display: flex;
-  flex-direction: row;
-}
-
-.divbotones > button{
-  margin: 10px;
-}
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f6fa;
@@ -75,7 +46,7 @@ body {
 
 .app-container {
   max-width: 900px;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 20px;
   background: #fff;
   border-radius: 10px;
@@ -85,13 +56,14 @@ body {
 h2 {
   text-align: center;
   color: #2f3640;
+  margin-bottom: 20px;
 }
 
-.inputs-container {
+.form-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 input {
@@ -101,7 +73,6 @@ input {
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
-  transition: border 0.2s;
 }
 
 input:focus {
@@ -130,24 +101,60 @@ input:focus {
   background-color: #74b9ff;
 }
 
-.table-container {
-  max-height: 400px;
+/* Tabla en pantalla completa - fuera del contenedor */
+.table-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1000;
   overflow: auto;
-  margin-top: 15px;
-  border: 1px solid #dcdde1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0984e3;
+}
+
+.table-header h3 {
+  margin: 0;
+  color: #2f3640;
+}
+
+.close-btn {
+  padding: 8px 16px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
   border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background-color: #c0392b;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  background-color: #fff;
 }
 
 th, td {
-  padding: 8px 12px;
+  padding: 12px;
   text-align: left;
   border-bottom: 1px solid #dcdde1;
+  white-space: nowrap;
 }
 
 th {
@@ -155,8 +162,13 @@ th {
   color: #fff;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 tr:nth-child(even) {
   background-color: #f1f2f6;
+}
+
+tr:hover {
+  background-color: #dfe6e9;
 }
